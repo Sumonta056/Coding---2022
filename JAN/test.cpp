@@ -1,96 +1,74 @@
-//        ** Sumonta Saha Mridul **                                    SWE - SUST
-/*
 
- *        ######    ##     ##  ##     ##   #######   ##    ##   ########      ###
- !       ##    ##   ##     ##  ###   ###  ##     ##  ###   ##      ##        ## ##
- ?       ##         ##     ##  #### ####  ##     ##  ####  ##      ##       ##   ##
- *        ######    ##     ##  ## ### ##  ##     ##  ## ## ##      ##      ##     ##
- !             ##   ##     ##  ##     ##  ##     ##  ##  ####      ##      #########
- ?       ##    ##   ##     ##  ##     ##  ##     ##  ##   ###      ##      ##     ##
- *        ######     #######   ##     ##   #######   ##    ##      ##      ##     ##
-
-*/
-#include <bits/stdc++.h>
+#include <vector>
+#include <list>
+#include <map>
+#include <set>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <bitset>
+#include <algorithm>
+#include <functional>
+#include <numeric>
+#include <utility>
+#include <sstream>
+#include <iostream>
+#include <iomanip>
+#include <cstdio>
+#include <cmath>
+#include <cstdlib>
+#include <cctype>
+#include <string>
+#include <cstring>
+#include <cstdio>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
-#define ll long long
-#define ull unsigned long long
+typedef unsigned int uint;
+typedef long long int64;
+typedef unsigned long long uint64;
 
-#define f first
-#define se second
-#define lb lower_bound
-#define ub upper_bound
-#define pb push_back
+#define FOI(i, A, B) for (i = A; i <= B; i++)
+#define FOD(i, A, B) for (i = A; i >= B; i--)
 
-#define pii pair<int, int>
-#define pll pair<long, long>
-#define mp(a, b) make_pair(a, b)
-#define vi vector<int>
-#define vll vector<ll>
-#define vii vector<pii>
-#define sll set<ll>
-#define qll queue<ll>
-#define stll stack<ll>
-#define Mi map<int, int>
-#define mii map<pii, int>
-#define alls(a) (a).begin(), (a).end()
-#define sz(x) (int)x.size()
-
-#define Size(s) s.length()
-#define all(v) (v.begin, v.end)
-#define rev(v) reverse(v.begin, v.end)
-#define srt(v) sort(v.begin, v.end)
-
-#define F(i, s, e) for (ll i = s; i < e; ++i)
-#define rep(i, a, b) for (int i = a; i < b; i++)
-#define rem(i, a, b) for (int i = a; i > b; i--)
-#define pv(v)             \
-    for (ll i : v)        \
-        cout << i << " "; \
-    cout << endl;
-
-#define max3(a,b,c) max(max((a),(b)),(c))
-#define min3(a,b,c) min(min((a),(b)),(c))
-
-#define cin(n) cin >> n
-#define cin2(a, b) cin >> a >> b;
-#define cin3(a, b, c) cin >> a >> b >> c;
-#define printE(str) cout << str << endl
-#define print(str) cout << str << endl
-#define endl '\n'
-#define Y cout << "YES\n"
-#define No cout << "NO\n"
-#define ye cout << "Yes\n"
-#define no cout << "No\n"
-
-#define sp " "
-#define enter cout << endl;
-
-#define fast                          \
-    ios_base::sync_with_stdio(false); \
-    cin.tie(NULL);                    \
-    cout.tie(NULL)
-
-#define mod 1000000007
-#define inf 1000000000000000005
-#define INF numeric_limits<ll>::max();
-#define NINF numeric_limits<ll>::min();
-const int N = int(1e5 + 3);
-
-#define foi(i, a, b) for (int i = a; i < b; i++)
-#define foI(i, a, b) for (int i = a; i <= b; i++)
-#define fol(i, a, b) for (ll i = a; i < b; i++)
-#define foL(i, a, b) for (ll i = a; i <= b; i++)
-
-//* char a = 'A';   int num = (int) a;
-//* char a = '2';   int num = a-48;
-
-ll mod_mul(ll a, ll b) {a = a % mod; b = b % mod; return (((a * b) % mod) + mod) % mod;}
-ll mod_add(ll a, ll b) {a = a % mod; b = b % mod; return (((a + b) % mod) + mod) % mod;}
+struct compare
+{
+	bool operator()(const int &l, const int &r)
+	{
+		return l > r;
+	}
+};
 
 int main()
 {
-    fast;
-    
-    
+	// freopen("testI.txt", "r", stdin);
+	// freopen("testO.txt", "w", stdout);
+	while (true)
+	{
+		int64 N;
+		scanf("%lld", &N);
+		if (N == 0)
+			break;
+		priority_queue<int64, vector<int64>, compare> pq;
+		int64 i, T = 0, I;
+		FOI(i, 1, N)
+		{
+			scanf("%lld", &I);
+			pq.push(I);
+		}
+		while (pq.size() > 1)
+		{
+			int64 V = 0;
+			V += pq.top();
+			pq.pop();
+			V += pq.top();
+			pq.pop();
+			T += V;
+			pq.push(V);
+		}
+		printf("%lld\n", T);
+	}
+	return 0;
 }
