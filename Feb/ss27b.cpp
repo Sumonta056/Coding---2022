@@ -107,31 +107,19 @@ int main()
 
     while (t--)
     {
-        string s;
-        cin >> s;
+        int n;
+        cin >> n;
 
-        int size = s.length();
+        ll arr[n];
+        for (int i = 0; i < n; i++)
+            cin >> arr[i];
 
-        int one = 0, zero = 0;
+        sort(arr, arr + n);
 
-        for (int i = 0; i < size; i++)
-        {
-            if (s[i] == '0')
-                zero++;
-            else
-                one++;
-        }
+        int a = arr[0];
+        int b = arr[1];
+        int c = arr[n - 1];
 
-        if (one == 0 || zero == 0)
-            cout << 0 << endl;
-        else if (one == zero)
-        {
-            if (size == 2)
-                cout << 0 << endl;
-            else
-                cout << one - 1 << endl;
-        }
-        else
-            cout << min(one, zero) << endl;
+        if(a+c)
     }
 }

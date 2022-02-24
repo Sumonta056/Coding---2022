@@ -49,8 +49,8 @@ using namespace std;
         cout << i << " "; \
     cout << endl;
 
-#define max3(a, b, c) max(max((a), (b)), (c))
-#define min3(a, b, c) min(min((a), (b)), (c))
+#define max3(a,b,c) max(max((a),(b)),(c))
+#define min3(a,b,c) min(min((a),(b)),(c))
 
 #define cin(n) cin >> n
 #define cin2(a, b) cin >> a >> b;
@@ -86,52 +86,12 @@ const int N = int(1e5 + 3);
 //* char a = '2';   int num = a-48;
 //* char a = '8';   int num = a - '0' ;  (  s[i]-'0' == 8 )
 
-ll mod_mul(ll a, ll b)
-{
-    a = a % mod;
-    b = b % mod;
-    return (((a * b) % mod) + mod) % mod;
-}
-ll mod_add(ll a, ll b)
-{
-    a = a % mod;
-    b = b % mod;
-    return (((a + b) % mod) + mod) % mod;
-}
+ll mod_mul(ll a, ll b) {a = a % mod; b = b % mod; return (((a * b) % mod) + mod) % mod;}
+ll mod_add(ll a, ll b) {a = a % mod; b = b % mod; return (((a + b) % mod) + mod) % mod;}
 
 int main()
 {
     fast;
-    int t;
-    cin >> t;
-
-    while (t--)
-    {
-        string s;
-        cin >> s;
-
-        int size = s.length();
-
-        int one = 0, zero = 0;
-
-        for (int i = 0; i < size; i++)
-        {
-            if (s[i] == '0')
-                zero++;
-            else
-                one++;
-        }
-
-        if (one == 0 || zero == 0)
-            cout << 0 << endl;
-        else if (one == zero)
-        {
-            if (size == 2)
-                cout << 0 << endl;
-            else
-                cout << one - 1 << endl;
-        }
-        else
-            cout << min(one, zero) << endl;
-    }
+    
+    
 }

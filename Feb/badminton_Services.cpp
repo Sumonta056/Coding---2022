@@ -102,36 +102,15 @@ ll mod_add(ll a, ll b)
 int main()
 {
     fast;
+
     int t;
     cin >> t;
 
     while (t--)
     {
-        string s;
-        cin >> s;
+        ll n;
+        cin >> n;
 
-        int size = s.length();
-
-        int one = 0, zero = 0;
-
-        for (int i = 0; i < size; i++)
-        {
-            if (s[i] == '0')
-                zero++;
-            else
-                one++;
-        }
-
-        if (one == 0 || zero == 0)
-            cout << 0 << endl;
-        else if (one == zero)
-        {
-            if (size == 2)
-                cout << 0 << endl;
-            else
-                cout << one - 1 << endl;
-        }
-        else
-            cout << min(one, zero) << endl;
+        cout << n / 2 + 1 << endl;
     }
 }

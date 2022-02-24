@@ -102,36 +102,28 @@ ll mod_add(ll a, ll b)
 int main()
 {
     fast;
-    int t;
-    cin >> t;
 
-    while (t--)
+    int a, b, k;
+    cin >> a >> b >> k;
+
+    set<int> ans;
+
+    int n = (b - a) + 1;
+
+    if (k > n)
+        k = n;
+
+    for (int i = 0; i < k; i++)
     {
-        string s;
-        cin >> s;
+        ans.insert(a);
+        a++;
 
-        int size = s.length();
+        ans.insert(b);
+        b--;
+    }
 
-        int one = 0, zero = 0;
-
-        for (int i = 0; i < size; i++)
-        {
-            if (s[i] == '0')
-                zero++;
-            else
-                one++;
-        }
-
-        if (one == 0 || zero == 0)
-            cout << 0 << endl;
-        else if (one == zero)
-        {
-            if (size == 2)
-                cout << 0 << endl;
-            else
-                cout << one - 1 << endl;
-        }
-        else
-            cout << min(one, zero) << endl;
+    for(auto it : ans)
+    {
+        cout << it << endl;
     }
 }

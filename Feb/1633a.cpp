@@ -115,11 +115,15 @@ int main()
 
         else
         {
-            for (int i = 1;; i++)
+            int last = n / 10;
+
+            for (int i = 0; i < 9; i++)
             {
-                if ((i*7) > n)
+                int ans = last * 10 + i ;
+
+                if(ans % 7 == 0)
                 {
-                    cout << (i-1)*7 << endl;
+                    cout << ans << endl;
                     break;
                 }
             }
