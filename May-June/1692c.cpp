@@ -49,8 +49,8 @@ using namespace std;
         cout << i << " "; \
     cout << endl;
 
-#define max3(a, b, c) max(max((a), (b)), (c))
-#define min3(a, b, c) min(min((a), (b)), (c))
+#define max3(a,b,c) max(max((a),(b)),(c))
+#define min3(a,b,c) min(min((a),(b)),(c))
 
 #define cin(n) cin >> n
 #define cin2(a, b) cin >> a >> b;
@@ -86,18 +86,8 @@ const int N = int(1e5 + 3);
 //* char a = '2';   int num = a-48;
 //* char a = '8';   int num = a - '0' ;  (  s[i]-'0' == 8 )
 
-ll mod_mul(ll a, ll b)
-{
-    a = a % mod;
-    b = b % mod;
-    return (((a * b) % mod) + mod) % mod;
-}
-ll mod_add(ll a, ll b)
-{
-    a = a % mod;
-    b = b % mod;
-    return (((a + b) % mod) + mod) % mod;
-}
+ll mod_mul(ll a, ll b) {a = a % mod; b = b % mod; return (((a * b) % mod) + mod) % mod;}
+ll mod_add(ll a, ll b) {a = a % mod; b = b % mod; return (((a + b) % mod) + mod) % mod;}
 
 int main()
 {
@@ -105,18 +95,35 @@ int main()
 
     int t;
     cin >> t;
-
-    while (t--)
+    
+    while(t--)
     {
-        int n, a, b;
-        cin >> n >> a >> b;
+        char chess[8][8];
 
-        for (int i = 0; i < n; ++i)
+        for(int i = 0 ; i < 8 ; i++)
         {
-            char c = ('a' + i % b);
-            cout << c;
+            for(int j = 0 ; j < 8 ; j++)
+            {
+                cin >> chess[i][j];
+            }
         }
-        cout << endl;
-        
+
+        for(int i = 0 ; i < 8 ; i++)
+        {
+            for(int j = 0 ; j < 8 ; j++)
+            {
+                if(chess[i][j] == '.') continue;
+                else
+                {
+                    if (chess[i+1][j-1] == '#' && chess[i-1][j-1] == '#' && chess[i+1][j+1] == '#' && chess[i-1][j+1] == '#')
+                    {
+                        cout << i+1 << sp << j+1 << endl;
+                        break;
+                    }
+                    else continue;
+                }
+            }
+        }
     }
+    
 }
